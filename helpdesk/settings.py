@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #my apps
     'accounts.apps.AccountsConfig',
     'produtos.apps.ProdutosConfig',
+    'servicos.apps.ServicosConfig',
 ]
 
 MIDDLEWARE = [
