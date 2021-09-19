@@ -1,0 +1,30 @@
+<form method="POST" action="{% url 'cadastro' %}">
+    {% csrf_token %}
+    <div class="">
+        <input type="text" name="nome"  value="{{request.POST.nome}}" required>    
+        <label>Nome</label>
+    </div>
+    <div class="">
+        <input type="text" name="sobrenome" value="{{request.POST.sobrenome}}" required>
+        <label>Sobrenome</label>
+    </div>
+    <div class="">
+        <input type="email" name="email" value="{{request.POST.email}}" required>
+        <label>Email</label>
+    </div>
+    <div class="">
+        <input type="text" name="usuario" value="{{request.POST.usuario}}" required>    
+        <label>Usuário</label>
+    </div>
+    <div class="">
+        <input type="password" name="senha" required>
+        <label>Senha</label>
+    </div>
+    <div class="">
+        <input type="password" name="senha2" required>
+        <label>Repita sua senha</label>
+    </div>
+    <div class="">
+        <button type="submit" class="">Enviar</button>
+    </div>
+</form>

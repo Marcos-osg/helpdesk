@@ -1,0 +1,11 @@
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <label>Usuario:</label>
+    <input type="text" name="usuario" value="{{request.POST.usuario}}">
+    <label>Senha:</label>
+    <input type="password" name="senha" values="{{request.POST.senha}}">
+    <button type="submit">Login</button>
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+</form>
