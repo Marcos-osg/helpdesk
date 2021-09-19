@@ -5,6 +5,11 @@
     <label>Senha:</label>
     <input type="password" name="senha" values="{{request.POST.senha}}">
     <button type="submit">Login</button>
+    <br>
+    <a href="{% url 'cadastro' %}"> cadastrar </a>
+    <br>
+    <a href="{% url 'reset_password' %}"> reset de senha </a>
+    <br>
     {% for message in messages %}
         {{message}}
     {% endfor %}
