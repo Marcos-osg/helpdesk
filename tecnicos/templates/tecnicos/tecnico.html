@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-hover">
+    <tr>
+        <th>Nome do Tecnico(a)</th>
+        <th>Registro do Tecnico(a)</th>
+    </tr>
+    {% for tecnico in tecnicos %}
+    <tr>
+        <td>{{tecnico.nome}}</td>
+        <td>{{tecnico.registro}}</td>
+        <td>
+            <a href="{% url 'technician-details' tecnico.id %}">
+                <button class="btn btn-info">Detalhes</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'new-technician' %}">
+    <button class="btn btn-success">Adicionar novo Tecnico</button>
+</a>
+{% endblock %}

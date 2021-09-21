@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="">
+    {% csrf_token %}
+    <table class="table table-hover">
+        <tr>
+            <th>Nome do Tecnico(a)</th>
+            <th>Registro do Tecnico(a)</th>
+        </tr>
+        <tr>
+            <td>{{tecnico.nome}}</td>
+            <td>{{tecnico.registro}}</td>
+        </tr>
+    </table>
+</form>
+<a href="{% url 'technician' %}">
+    <button class="btn btn-secondary">Voltar</button>
+</a>
+{% endblock %}
