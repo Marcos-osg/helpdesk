@@ -1,22 +1,20 @@
-<style>
-    table, th, td {
-      border:1px solid black;
-    }
-</style>
-<form action="">
-    {% csrf_token %}
-    <table style="width:60%">
-        <tr>
-            <th>Item</th>
-            <th>Descrição do item</th>
-            <th>Valor do item</th>
-            <th>Disponivel</th>
-        </tr>
-        <tr>
-            <td>{{produto.item}}</td>
-            <td>{{produto.descricao}}</td>
-            <td>{{produto.valor}}</td>
-            <td>{{produto.disponivel}}</td>
-        </tr>
-    </table>
-</form>
+{% extends 'base.html' %}
+{% block content %}
+    <form action="">
+        {% csrf_token %}
+        <table class="table table-hover">
+            <tr>
+                <th>Item</th>
+                <th>Descrição do item</th>
+                <th>Valor do item</th>
+                <th>Disponivel</th>
+            </tr>
+            <tr>
+                <td>{{produto.item}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.valor}}</td>
+                <td>{{produto.disponivel}}</td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

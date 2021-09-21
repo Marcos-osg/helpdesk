@@ -1,11 +1,8 @@
-<style>
-    table, th, td {
-      border:1px solid black;
-    }
-</style>
+{% extends 'base.html' %}
+{% block content %}
 <form action="">
     {% csrf_token %}
-    <table style="width:80%">
+    <table class="table table-hover">
         <tr>
             <th>Descrição do serviço</th>
             <th>Tipo de serviço</th>
@@ -29,3 +26,4 @@
 <a href="{% url 'services' %}">
     <button>Voltar</button>
 </a>
+{% endblock %}

@@ -1,8 +1,14 @@
-<form action="" method='POST'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Adicionar</button>
-</form>
-<a href="{% url 'product' %}">
-    <button>Voltar</button>
-</a>
+{% extends 'base.html' %}
+{% block content %}
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar</button>
+    </form>
+    <br>
+    <hr>
+    
+    <a href="{% url 'product' %}">
+        <button>Voltar</button>
+    </a>
+{% endblock %}
