@@ -7,14 +7,14 @@ from accounts.models import Cliente
 # Create your models here.
 class Servico(models.Model):
     TIPO_SERVICO_CHOICES = [
-        ('manutencao','Manutenção'),
-        ('troca','Troca'),
-        ('formatacao','Formatação'),
-        ('backup','Backup'),
+        ('Manutenção','Manutenção'),
+        ('Troca','Troca'),
+        ('Formatacao','Formatação'),
+        ('Backup','Backup'),
     ]
     STATUS_CHOICES = [
-        ('nao_finalizado', 'Não Finalizado'),
-        ('finalizado', 'Finalizado'),
+        ('Não finalizado', 'Não Finalizado'),
+        ('Finalizado', 'Finalizado'),
     ]
 
     descricao_servico = models.TextField(verbose_name='Descrição do Serviço')

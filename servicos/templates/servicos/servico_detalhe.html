@@ -1,0 +1,31 @@
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+<form action="">
+    {% csrf_token %}
+    <table style="width:80%">
+        <tr>
+            <th>Descrição do serviço</th>
+            <th>Tipo de serviço</th>
+            <th>Data do serviço</th>
+            <th>Status do serviço</th>
+            <th>Tecnico responsavel</th>
+            <th>Cliente</th>
+            <th>Produto</th>
+        </tr>
+        <tr>
+            <td>{{servico.descricao_servico}}</td>
+            <td>{{servico.tipo_servico}}</td>
+            <td>{{servico.data_servico}}</td>
+            <td>{{servico.status}}</td>
+            <td>{{servico.tecnico}}</td>
+            <td>{{servico.cliente}}</td>
+            <td>{{servico.produto}}</td>
+        </tr>
+    </table>
+</form>
+<a href="{% url 'services' %}">
+    <button>Voltar</button>
+</a>

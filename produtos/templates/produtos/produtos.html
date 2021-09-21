@@ -1,4 +1,27 @@
-<a href="{% url 'new-product' %}">Adicionar novo produto</a>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+<table style="width:60%">
+    <tr>
+        <th>Item</th>
+        <th>Descrição do item</th>
+        <th>Valor do item</th>
+        <th>Disponivel</th>
+    </tr>
+    {% for produto in produtos %}
+    <tr>
+        <td>{{produto.item}}</td>
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.valor}}</td>
+        <td>{{produto.disponivel}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'new-product' %}">
+    <button>Adicionar novo produto</button>
+</a>
 {% for message in messages %}
     {{message}}
 {% endfor %}

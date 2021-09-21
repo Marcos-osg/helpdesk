@@ -19,7 +19,8 @@ def new_product(request):
     return render(request, 'produtos/produto_form.html',context)
 
 def produto(request):
-    return render(request, 'produtos/produtos.html')
+    context = {'produtos':Produto.objects.all()}
+    return render(request, 'produtos/produtos.html',context)
 
 def produto_detalhe(request, id_produto):
     produto = {'produto':Produto.objects.get(pk=id_produto)}
