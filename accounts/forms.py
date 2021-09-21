@@ -1,5 +1,7 @@
 from django.contrib.auth import forms
-from accounts.models import User
+from accounts.models import User, Cliente
+from django.forms import ModelForm
+
 
 class UserChangeForm(forms.UserChangeForm):
     class Meta(forms.UserChangeForm.Meta):
@@ -9,3 +11,9 @@ class UserChangeForm(forms.UserChangeForm):
 class UserCreationForm(forms.UserCreationForm):
     class Meta(forms.UserCreationForm.Meta):
         model = User
+
+
+class ClienteForm(ModelForm):
+    class Meta:
+        fields = '__all__'
+        model = Cliente

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-hover">
+    <tr>
+        <th>Nome do Cliente</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Estado</th>
+    </tr>
+    <tr>
+        <td>{{cliente.nome_completo}}</td>
+        <td>{{cliente.cpf}}</td>
+        <td>{{cliente.telefone}}</td>
+        <td>{{cliente.endereco}}</td>
+        <td>{{cliente.estado}}</td>
+    </tr>
+</table>
+<a href="{% url 'client-list' %}">
+    <button class="btn btn-secondary">Voltar</button>
+</a>
+{% endblock %}

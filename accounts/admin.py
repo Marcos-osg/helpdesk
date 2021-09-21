@@ -12,4 +12,4 @@ class UserAdmin(auth_admin.UserAdmin):
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('nome_completo','cpf','telefone','endereco','cidade')
+    list_display = ('nome_completo','cpf','telefone','endereco','estado')

@@ -10,7 +10,7 @@ class User(AbstractUser):
 
 
 class Cliente(models.Model):
-    CIDADE_CHOICES=[
+    ESTADO_CHOICES=[
         ('AC','Acre'),
         ('AL','Alagoas'),
         ('AM','Amazonas'),
@@ -43,7 +43,7 @@ class Cliente(models.Model):
     cpf = models.CharField(max_length=11 ,unique=True, verbose_name='CPF')
     telefone = models.CharField(max_length=11, null=True, blank=True)
     endereco = models.CharField(max_length=255, verbose_name='Endereço')
-    cidade = models.CharField(choices=CIDADE_CHOICES,max_length=255, verbose_name='Estado')
+    estado = models.CharField(choices=ESTADO_CHOICES,max_length=255, verbose_name='Estado')
 
     class Meta:
         verbose_name = 'Cliente'

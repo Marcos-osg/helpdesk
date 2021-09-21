@@ -1,8 +1,11 @@
 from django.contrib import auth,messages
 from django.shortcuts import redirect, render
-from accounts.models import User
+from accounts import forms
+from accounts.models import Cliente, User
+from accounts.forms import ClienteForm
 from django.core.validators import validate_email
 
+# contas e usuarios
 
 def cadastrar(request):
     if request.method != 'POST':
@@ -62,3 +65,27 @@ def login_sucess(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+# clientes
+
+def novo_cliente(request):
+    if request.method != 'POST':
+        cliente = ClienteForm
+        context = {'form':cliente}
+        return render(request, 'clientes/cliente_form.html',context)
+    form = ClienteForm(request.POST)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Cliente Adicionado com sucesso!')
+        return redirect('client-list')
+    context = {'form': form}
+    return render(request,'clientes/cliente_form.html', context)
+
+def clientes(request):
+    cliente = {'clientes':Cliente.objects.all()}
+    return render(request, 'clientes/clientes.html', cliente)
+
+def detalhe_cliente(request, id_cliente):
+    cliente = {'cliente':Cliente.objects.get(pk=id_cliente)}
+    return render(request, 'clientes/cliente_detalhe.html', cliente)
+
