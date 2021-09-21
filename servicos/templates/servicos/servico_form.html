@@ -3,12 +3,10 @@
 <form action="" method='POST'>
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Adicionar</button>
+    <button class="btn btn-success" type="submit">Adicionar</button>
 </form>
 <br>
-<hr>
-<br>
 <a href="{% url 'services' %}">
-    <button>Voltar</button>
+    <button class="btn btn-secondary">Voltar</button>
 </a>
 {% endblock %}

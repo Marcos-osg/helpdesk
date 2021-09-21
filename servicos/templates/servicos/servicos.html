@@ -19,11 +19,16 @@
                 <td>{{servico.tecnico}}</td>
                 <td>{{servico.cliente}}</td>
                 <td>{{servico.produto}}</td>
+                <td>
+                    <a href="{% url 'detail-service' servico.id %}">
+                        <button class="btn btn-info">Detalhes</button>
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </table>
     <a href="{% url 'new-service' %}">
-        <button>Adicionar novo serviço</button>
+        <button class="btn btn-primary">Adicionar novo serviço</button>
     </a>
     {% for message in messages %}
         {{message}}

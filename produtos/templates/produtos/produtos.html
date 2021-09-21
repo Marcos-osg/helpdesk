@@ -13,14 +13,18 @@
             <td>{{produto.descricao}}</td>
             <td>{{produto.valor}}</td>
             <td>{{produto.disponivel}}</td>
+            <td>
+                <a href="{% url 'product-details' produto.id %}">
+                    <button class="btn btn-info">Detalhes</button>
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </table>
     <br>
-    <hr>
     
     <a href="{% url 'new-product' %}">
-        <button>Adicionar novo produto</button>
+        <button class="btn btn-primary">Adicionar novo produto</button>
     </a>
     {% for message in messages %}
         {{message}}
