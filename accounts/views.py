@@ -4,9 +4,10 @@ from accounts import forms
 from accounts.models import Cliente, User
 from accounts.forms import ClienteForm
 from django.core.validators import validate_email
+from django.contrib.auth.decorators import login_required
 
 # contas e usuarios
-
+@login_required(login_url='login')
 def cadastrar(request):
     if request.method != 'POST':
         return render(request, 'accounts/cadastro_form.html')
@@ -58,16 +59,17 @@ def login(request):
         auth.login(request, user)
         return redirect('login-sucess')
         
-
+@login_required(login_url='login')
 def login_sucess(request):
     return render(request, 'accounts/login_sucess.html')
 
+@login_required(login_url='login')
 def logout(request):
     auth.logout(request)
     return redirect('login')
 
 # clientes
-
+@login_required(login_url='login')
 def novo_cliente(request):
     if request.method != 'POST':
         cliente = ClienteForm
@@ -81,10 +83,12 @@ def novo_cliente(request):
     context = {'form': form}
     return render(request,'clientes/cliente_form.html', context)
 
+@login_required(login_url='login')
 def clientes(request):
     cliente = {'clientes':Cliente.objects.all()}
     return render(request, 'clientes/clientes.html', cliente)
 
+@login_required(login_url='login')
 def detalhe_cliente(request, id_cliente):
     cliente = {'cliente':Cliente.objects.get(pk=id_cliente)}
     return render(request, 'clientes/cliente_detalhe.html', cliente)

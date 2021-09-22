@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #third apps
-
+    'bootstrap4',
     #my apps
     'accounts.apps.AccountsConfig',
     'produtos.apps.ProdutosConfig',

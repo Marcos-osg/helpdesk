@@ -14,6 +14,20 @@
         <td>{{cliente.telefone}}</td>
         <td>{{cliente.endereco}}</td>
         <td>{{cliente.estado}}</td>
+        {% if user.is_authenticated and user.is_staff %}
+                    <td>
+                        <a href="">
+                            <button class="btn btn-warning">Editar</button>
+                        </a>
+                    </td>
+                {% endif %}
+                {% if user.is_authenticated and user.is_superuser %}
+                    <td>
+                        <a href="">
+                            <button class="btn btn-danger">Excluir</button>
+                        </a>
+                    </td>
+                {% endif %}
     </tr>
 </table>
 <a href="{% url 'client-list' %}">

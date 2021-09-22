@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <form method="POST" action="{% url 'cadastro' %}">
     {% csrf_token %}
     <div class="">
@@ -33,3 +35,4 @@
         <button class="">voltar</button>
     </a>
 </div>
+{% endblock %}
