@@ -128,8 +128,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+from django.contrib.messages import constants
+MESSAGE_TAGS = {
+    constants.ERROR: 'alert-danger',
+    constants.INFO: 'alert-info',
+    constants.WARNING: 'alert-warning',
+    constants.SUCCESS: 'alert-success',
+    constants.DEBUG: 'alert-info',
+}

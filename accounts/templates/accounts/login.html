@@ -1,16 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="{% url 'login' %}" method="POST">
-    {% csrf_token %}
-    <label>Usuario:</label>
-    <input type="text" name="usuario" value="{{request.POST.usuario}}">
-    <label>Senha:</label>
-    <input type="password" name="senha" values="{{request.POST.senha}}">
-    <button type="submit">Login</button>
-    <a href="{% url 'reset_password' %}"> reset de senha </a>
-    <br>
+<div class="container-login">
+    <div class="card-login">
+        <h1 class="h1-login">Login</h1>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="label-float">
+                <input type="text" name="usuario" value="{{request.POST.usuario}}" required>
+                <label >Usuário</label>
+            </div>
+            <div class="label-float">
+                <input type="password" name="senha" value="{{request.POST.senha}}" required >
+                <label >Senha</label>
+            </div>
+            <div class="justify-center">
+                <button type="submit" class="btn-login">Entrar</button>
+            </div>
+            <div class="justify-center">
+                <hr>
+            </div>
+            
+            <div class="p-login">
+                <p>Não consegue acessar? <a href="{% url 'reset_password' %}" class="a-login">Esqueci minha senha</a></p> 
+            </div>
+        </form>
+    </div>
     {% for message in messages %}
     {{message}}
     {% endfor %}
-</form>
+</div>
 {% endblock %}
