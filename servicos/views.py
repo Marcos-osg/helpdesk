@@ -26,6 +26,6 @@ def new_service(request):
     return render(request,'servicos/servico_form.html', context)
 
 @login_required(login_url='login')
-def detail_service(request, id_servico):
-    servico = {'servico':Servico.objects.get(id=id_servico)}
+def detail_service(request, id=None):
+    servico = {'servico':Servico.objects.get(id=id)}
     return render(request, 'servicos/servico_detalhe.html',servico)

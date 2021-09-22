@@ -25,5 +25,5 @@ urlpatterns = [
     # urls de clientes e cadastro de clientes
     path('clientes',views.clientes, name='client-list'),
     path('new_client',views.novo_cliente, name='new-client'),
-    path('detalhe/<int:id_cliente>',views.detalhe_cliente, name='detail-client'),
+    path('detalhe/?P<id>[0-9]+',views.detalhe_cliente, name='detail-client'),
 ]

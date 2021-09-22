@@ -89,7 +89,7 @@ def clientes(request):
     return render(request, 'clientes/clientes.html', cliente)
 
 @login_required(login_url='login')
-def detalhe_cliente(request, id_cliente):
-    cliente = {'cliente':Cliente.objects.get(pk=id_cliente)}
+def detalhe_cliente(request, id=None):
+    cliente = {'cliente':Cliente.objects.get(pk=id)}
     return render(request, 'clientes/cliente_detalhe.html', cliente)
 

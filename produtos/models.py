@@ -1,11 +1,19 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 class Produto(models.Model):
     DISPONIVEL_CHOICES = [
         ('Sim','Sim'),
-        ('Não','Não'),
+        ('Nao','Não'),
     ]
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        null=False,
+        blank=True,
+        editable=False
+    )
     item = models.CharField(max_length=100)
     descricao = models.TextField()
     valor = models.DecimalField(max_digits=5, decimal_places=2)
@@ -15,5 +23,6 @@ class Produto(models.Model):
         return self.item
 
     class Meta:
+        ordering = ['-disponivel']
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'

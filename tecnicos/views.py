@@ -1,3 +1,4 @@
+from uuid import uuid4
 from django.contrib import messages
 from tecnicos.models import Tecnico
 from django.shortcuts import redirect, render
@@ -26,6 +27,6 @@ def new_technician(request):
     return render(request, 'tecnicos/tecnico_form.html', context)
 
 @login_required(login_url='login')
-def detail_technician(request, id_tecnico):
-    tecnico = {'tecnico':Tecnico.objects.get(pk=id_tecnico)}
-    return render(request, 'tecnicos/tecnico_detalhes.html',tecnico)
+def detail_technician(request, id=None):
+    tecnico = {'tecnico':Tecnico.objects.get(pk=id)}
+    return render(request, 'tecnicos/tecnico_detalhes.html',tecnico) 

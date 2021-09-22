@@ -26,13 +26,13 @@ def produto(request):
     return render(request, 'produtos/produtos.html',context)
 
 @login_required(login_url='login')
-def produto_detalhe(request, id_produto):
-    produto = {'produto':Produto.objects.get(pk=id_produto)}
+def produto_detalhe(request, id=None):
+    produto = {'produto':Produto.objects.get(pk=id)}
     return render(request, 'produtos/produto_detalhe.html', produto)
 
 @login_required(login_url='login')
-def deletar_produto(request, id_produto):
-    produto = Produto.objects.get(pk=id_produto)
+def deletar_produto(request, id=None):
+    produto = Produto.objects.get(pk=id)
     if request.method == 'POST':
         produto.delete()
         return redirect('product')

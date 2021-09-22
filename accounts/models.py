@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+import uuid
 
 class User(AbstractUser):
     pass
@@ -39,6 +40,13 @@ class Cliente(models.Model):
         ('SP','São Paulo'),
         ('TO','Tocantins'),
     ]
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        null=False,
+        blank=True,
+        editable=False
+    )
     nome_completo = models.CharField(max_length=255, verbose_name="Nome do cliente")
     cpf = models.CharField(max_length=11 ,unique=True, verbose_name='CPF')
     telefone = models.CharField(max_length=11, null=True, blank=True)
