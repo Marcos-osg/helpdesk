@@ -29,3 +29,25 @@ def new_service(request):
 def detail_service(request, id=None):
     servico = {'servico':Servico.objects.get(id=id)}
     return render(request, 'servicos/servico_detalhe.html',servico)
+ 
+@login_required(login_url='login')
+def delete_service(request, id=None):
+    servico = Servico.objects.get(pk=id)
+    if request.method != 'POST':
+        context = {'servico': servico}
+        return render(request, 'servicos/deletar_servico.html', context)
+    servico.delete()
+    return redirect('services')
+
+@login_required(login_url='login')
+def edita_service(request, id=None):
+    servico = Servico.objects.get(pk=id)
+    formset = ServicoForm(instance=servico)
+
+    if request.method == 'POST':
+        form = ServicoForm(request.POST, instance=servico)
+        if form.is_valid():
+            form.save()
+            return redirect('services')
+    context = {'servico':formset}
+    return render(request, 'servicos/servico_edit.html', context)

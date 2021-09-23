@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load bootstrap4 %}
 {% load widget_tweaks %}
     <form action="" method='POST'>
-        {% csrf_token %}
-        {% render_field produto.item class="form-control" %}
-        {% render_field produto.valor class="form-control" %}
-        {% render_field produto.descricao class="form-control" %}
-        {% render_field produto.disponivel class="form-control" %}
-        <br>
+        <div class="container">
+            {% csrf_token %}
+            <label for="">Produto</label>
+            {% render_field produto.item class="form-control" %}
+            <label for="">Descrição do item</label>
+            {% render_field produto.descricao class="form-control" %}
+            <label for="">Valor do produto</label>
+            {% render_field produto.valor class="form-control" %}
+            <label for="">Disponibilidade</label>
+            {% render_field produto.disponivel class="form-control" %}
+            <br>
+        </div>
         <button class="btn btn-success" type="submit">Atualizar</button>
     </form>
     <br>

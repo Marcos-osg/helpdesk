@@ -24,6 +24,20 @@
                         <button class="btn btn-info">Detalhes</button>
                     </a>
                 </td>
+                {% if user.is_authenticated and user.is_staff %}
+                <td>
+                    <a href="{% url 'service-edit' servico.id %}">
+                        <button class="btn btn-warning">Editar</button>
+                    </a>
+                </td>
+                {% endif %}
+                {% if user.is_authenticated and user.is_superuser %}
+                    <td>
+                        <a href="{% url 'service-delete' servico.id %}">
+                            <button class="btn btn-danger">Excluir</button>
+                        </a>
+                    </td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>

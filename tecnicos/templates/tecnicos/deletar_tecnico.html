@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Confirmar exclusão do Tecnico <strong>{{tecnico.nome}} </strong> ?</h1>
+        <br>
+        <button class="btn btn-success" type="submit">Confirmar</button>
+        <a href="{% url 'technician' %}">
+            <button type="button" class="btn btn-warning">Cancelar</button>
+        </a>
+    </form>
+</div>
+{% endblock %}
