@@ -38,15 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #third apps
-    'bootstrap4',
-    'widget_tweaks',
     #my apps
     'accounts.apps.AccountsConfig',
     'produtos.apps.ProdutosConfig',
     'servicos.apps.ServicosConfig',
     'tecnicos.apps.TecnicosConfig',
     'core.apps.CoreConfig',
+    #third apps
+    'bootstrap4',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -84,9 +84,13 @@ WSGI_APPLICATION = 'helpdesk.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",
+        "PORT": 5432,
     }
 }
 
