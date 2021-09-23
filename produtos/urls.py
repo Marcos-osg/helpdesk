@@ -5,6 +5,7 @@ from produtos import views
 urlpatterns = [
     path('', views.produto, name='product'),
     path('detalhe/?P<id>[0-9]+', views.produto_detalhe, name='product-details'),
+    path('editar/?P<id>[0-9]+', views.edita_produto, name='edit-product'),
     path('novo_produto', views.new_product, name='new-product'),
     path('deletar_produto/?P<id>[0-9]+',views.deletar_produto, name='deletar-produto'),
 ]

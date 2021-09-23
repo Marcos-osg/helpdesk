@@ -31,8 +31,22 @@ def produto_detalhe(request, id=None):
     return render(request, 'produtos/produto_detalhe.html', produto)
 
 @login_required(login_url='login')
-def deletar_produto(request, id=None):
+def edita_produto(request, id=None):
     produto = Produto.objects.get(pk=id)
+    formset = ProdutoForm(instance=produto)
+
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, instance=produto)
+        if form.is_valid():
+            form.save()
+            return redirect('product')
+    context = {'produto':formset}
+    return render(request, 'produtos/produto_edit.html', context)
+
+    
+@login_required(login_url='login')
+def deletar_produto(request, id=None):
+    produto = Produto.objects.get(pk=id) 
     if request.method == 'POST':
         produto.delete()
         return redirect('product')

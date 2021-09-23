@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third apps
     'bootstrap4',
+    'widget_tweaks',
     #my apps
     'accounts.apps.AccountsConfig',
     'produtos.apps.ProdutosConfig',

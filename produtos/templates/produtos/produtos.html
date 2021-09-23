@@ -11,7 +11,7 @@
         <tr>
             <td>{{produto.item}}</td>
             <td>{{produto.descricao}}</td>
-            <td>{{produto.valor}}</td>
+            <td>R${{produto.valor}}</td>
             <td>{{produto.disponivel}}</td>
             <td>
                 <a href="{% url 'product-details' produto.id %}">
@@ -20,7 +20,7 @@
             </td>
             {% if user.is_authenticated and user.is_staff %}
                 <td>
-                    <a href="">
+                    <a href="{% url 'edit-product' produto.id %}">
                         <button class="btn btn-warning">Editar</button>
                     </a>
                 </td>
