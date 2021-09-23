@@ -26,4 +26,5 @@ urlpatterns = [
     path('clientes',views.clientes, name='client-list'),
     path('new_client',views.novo_cliente, name='new-client'),
     path('detalhe/?P<id>[0-9]+',views.detalhe_cliente, name='detail-client'),
+    path('excluir/?P<id>[0-9]+',views.excluir_cliente, name='delete-client'),
 ]

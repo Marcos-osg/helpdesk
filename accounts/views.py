@@ -93,3 +93,11 @@ def detalhe_cliente(request, id=None):
     cliente = {'cliente':Cliente.objects.get(pk=id)}
     return render(request, 'clientes/cliente_detalhe.html', cliente)
 
+@login_required(login_url='login')
+def excluir_cliente(request, id=None):
+    cliente = Cliente.objects.get(pk=id)
+    if request.method != 'POST':
+        context = {'cliente':cliente}
+        return render(request, 'clientes/cliente_delete.html', context)
+    cliente.delete()
+    return redirect('client-list')

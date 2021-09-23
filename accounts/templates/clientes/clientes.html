@@ -20,10 +20,32 @@
                 <button class="btn btn-info">Detalhes</button>
             </a>
         </td>
+        {%if user.is_authenticated and user.is_staff %}
+        <td>
+            <a href="">
+                <button class="btn btn-warning">Editar</button>
+            </a>
+        </td>
+        {% endif %}
+        {%if user.is_authenticated and user.is_superuser %}
+        <td>
+            <a href="{% url 'delete-client' cliente.id %}">
+                <button class="btn btn-danger">Excluir</button>
+            </a>
+        </td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>
 <a href="{% url 'new-client' %}">
     <button class="btn btn-primary">Adicionar novo Cliente</button>
 </a>
+<br>
+<br>
+{%if user.is_authenticated and user.is_superuser %}
+    <a href="{% url 'cadastro' %}">
+        <button class="btn btn-primary">Adicionar novo Usuario</button>
+    </a>
+{% endif %}
+
 {% endblock %}
