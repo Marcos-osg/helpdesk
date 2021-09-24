@@ -7,6 +7,8 @@
 + Technician
 + Services
 
+> member staff and superuser can add and edit forms in templates
+
 ## Adding UUID on all Models
 for the generate random ID fields
 
@@ -15,6 +17,7 @@ for the generate random ID fields
   <tr>
     <td>Python</td>
     <td>Django</td>
+    <td>Docker</td>
   </tr>
 </table>
 
