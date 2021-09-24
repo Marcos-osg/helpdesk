@@ -1,6 +1,5 @@
 from django.contrib import auth,messages
 from django.shortcuts import redirect, render
-from accounts import forms
 from accounts.models import Cliente, User
 from accounts.forms import ClienteForm
 from django.core.validators import validate_email
@@ -41,7 +40,7 @@ def cadastrar(request):
     user = User.objects.create_user(username=usuario, email=email, password=senha, first_name=nome, last_name=sobrenome)
     user.save()
 
-    return redirect('login')
+    return redirect('client-list')
 
 
 def login(request):
@@ -57,7 +56,7 @@ def login(request):
         return render(request, 'accounts/login.html')
     else:
         auth.login(request, user)
-        return redirect('login-sucess')
+        return redirect('client-list')
         
 @login_required(login_url='login')
 def login_sucess(request):

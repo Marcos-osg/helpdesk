@@ -41,9 +41,11 @@
             </tr>
         {% endfor %}
     </table>
+    {% if user.is_authenticated and user.is_staff %}
     <a href="{% url 'new-service' %}">
         <button class="btn btn-primary">Adicionar novo serviço</button>
     </a>
+    {% endif %}
     {% for message in messages %}
         {{message}}
     {% endfor %}

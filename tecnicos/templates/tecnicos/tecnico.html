@@ -33,7 +33,9 @@
     </tr>
     {% endfor %}
 </table>
+{% if user.is_authenticated and user.is_staff %}
 <a href="{% url 'new-technician' %}">
     <button class="btn btn-primary">Adicionar novo Tecnico</button>
 </a>
+{% endif %}
 {% endblock %}
