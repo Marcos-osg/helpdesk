@@ -3,6 +3,10 @@ import uuid
 
 # Create your models here.
 class Tecnico(models.Model):
+    ATIVO_CHOICES =[
+        ('ATIVO','Ativo'),
+        ('INATIVO','Inativo'),
+    ]
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -10,8 +14,9 @@ class Tecnico(models.Model):
         blank=True,
         editable=False
     )
-    nome = models.CharField(max_length=255)
-    registro = models.CharField(max_length=20)
+    nome = models.CharField(max_length=255,verbose_name='Nome do Tecnico')
+    registro = models.CharField(max_length=20, verbose_name='Registro')
+    ativo = models.CharField(choices=ATIVO_CHOICES, max_length=100, verbose_name='Status do Tecnico')
 
     def __str__(self):
         return self.nome

@@ -1,5 +1,7 @@
+from typing import Tuple
 import uuid
 from django.db import models
+from django.db.models.fields import Field, related
 from tecnicos.models import Tecnico
 from produtos.models import Produto
 from accounts.models import Cliente
@@ -30,12 +32,15 @@ class Servico(models.Model):
     data_servico = models.DateField(auto_now=True, verbose_name='Data de Inicio')
     data_entrega = models.DateField(verbose_name='Data prevista')
     status = models.CharField(choices=STATUS_CHOICES, max_length=25)
-    tecnico = models.ForeignKey(Tecnico, related_name='tecnico', on_delete=models.DO_NOTHING)
-    cliente = models.ForeignKey(Cliente, related_name='cliente', on_delete=models.DO_NOTHING)
-    produto = models.ForeignKey(Produto, related_name='produto', on_delete=models.DO_NOTHING)
+    valor = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Valor do serviço R$')
+    valor_total = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Valor total',null=True, blank=True)
+    tecnico = models.ForeignKey(Tecnico, related_name='tecnico', on_delete=models.SET_NULL, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, related_name='cliente', on_delete=models.SET_NULL, null=True, blank=True)
+    produto = models.ForeignKey(Produto, related_name='produto', on_delete=models.SET_NULL, null=True, blank=True)
+
 
     def __str__(self):
-        return self.tipo_servico 
+        return self.tipo_servico
 
     class Meta:
         verbose_name = 'Serviço'

@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <div class="card">
+{% load static %}
+<br>
+<div class="justify-content-center">
+    <div class="card text-center" style="width: 40rem;">
         <h1 class="h1">Login</h1>
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
-            <div class="label-float">
-                <input type="text" name="usuario" value="{{request.POST.usuario}}" required>
-                <label >Usuário</label>
+            <div class="">
+                <input type="text" name="usuario" value="{{request.POST.usuario}}" placeholder="Usuario" required>
             </div>
-            <div class="label-float">
-                <input type="password" name="senha" value="{{request.POST.senha}}" required >
-                <label >Senha</label>
+            <div class="">
+                <input type="password" name="senha" value="{{request.POST.senha}}" placeholder="Senha" required >
             </div>
+            <br>
             <div class="justify-center">
-                <button type="submit" class="btn">Entrar</button>
+                <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
             <div class="justify-center">
                 <hr>
