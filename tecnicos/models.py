@@ -16,7 +16,7 @@ class Tecnico(models.Model):
     )
     nome = models.CharField(max_length=255,verbose_name='Nome do Tecnico')
     registro = models.CharField(max_length=20, verbose_name='Registro')
-    ativo = models.CharField(choices=ATIVO_CHOICES, max_length=100, verbose_name='Status do Tecnico')
+    ativo = models.CharField(choices=ATIVO_CHOICES, max_length=100, verbose_name='Status do Tecnico', default='ATIVO')
 
     def __str__(self):
         return self.nome

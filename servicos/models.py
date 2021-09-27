@@ -1,5 +1,6 @@
 from typing import Tuple
 import uuid
+from django.core.checks import messages
 from django.db import models
 from django.db.models.fields import Field, related
 from tecnicos.models import Tecnico
@@ -11,7 +12,7 @@ import uuid
 # Create your models here.
 class Servico(models.Model):
     TIPO_SERVICO_CHOICES = [
-        ('Manutenção','Manutenção'),
+        ('Manutencao','Manutenção'),
         ('Troca','Troca'),
         ('Formatacao','Formatação'),
         ('Backup','Backup'),
@@ -28,10 +29,10 @@ class Servico(models.Model):
         editable=False
     )
     descricao_servico = models.TextField(verbose_name='Descrição do Serviço')
-    tipo_servico = models.CharField(choices=TIPO_SERVICO_CHOICES, verbose_name='Tipo de Serviço', max_length=25)
+    tipo_servico = models.CharField(choices=TIPO_SERVICO_CHOICES, verbose_name='Tipo de Serviço', max_length=25, default='Manutencao')
     data_servico = models.DateField(auto_now=True, verbose_name='Data de Inicio')
     data_entrega = models.DateField(verbose_name='Data prevista')
-    status = models.CharField(choices=STATUS_CHOICES, max_length=25)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=25, default='Nao finalizado')
     valor = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Valor do serviço R$')
     valor_total = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Valor total',null=True, blank=True)
     tecnico = models.ForeignKey(Tecnico, related_name='tecnico', on_delete=models.SET_NULL, null=True, blank=True)
