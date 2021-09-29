@@ -16,7 +16,7 @@ class Produto(models.Model):
     )
     item = models.CharField(max_length=100)
     descricao = models.TextField()
-    valor = models.DecimalField(max_digits=5, decimal_places=2)
+    valor = models.FloatField()
     disponivel = models.CharField(max_length=10, choices=DISPONIVEL_CHOICES, default='Nao')
 
     def __str__(self):

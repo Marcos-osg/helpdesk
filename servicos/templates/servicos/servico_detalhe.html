@@ -11,6 +11,9 @@
             <th>Tecnico responsavel</th>
             <th>Cliente</th>
             <th>Produto</th>
+            <th>Valor do serviço</th>
+            <th>Valor do Produto</th>
+            <th>Valor Total</th>
         </tr>
         <tr>
             <td>{{servico.descricao_servico}}</td>
@@ -20,6 +23,10 @@
             <td>{{servico.tecnico}}</td>
             <td>{{servico.cliente}}</td>
             <td>{{servico.produto}}</td>
+            <td>R${{servico.valor|floatformat:2}}</td>
+            <td>R${{servico.produto.valor|floatformat:2}}</td>
+            <td>R${{servico.get_valor|floatformat:2}}</td>
+
             {% if user.is_authenticated and user.is_staff %}
                     <td>
                         <a href="">

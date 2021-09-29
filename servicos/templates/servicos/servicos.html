@@ -8,7 +8,7 @@
             <th>Status do serviço</th>
             <th>Tecnico responsavel</th>
             <th>Cliente</th>
-            <th>Produto</th>
+
         </tr>
         {% for servico in servicos %}
             <tr>
@@ -18,7 +18,6 @@
                 <td>{{servico.status}}</td>
                 <td>{{servico.tecnico}}</td>
                 <td>{{servico.cliente}}</td>
-                <td>{{servico.produto}}</td>
                 <td>
                     <a href="{% url 'detail-service' servico.id %}">
                         <button class="btn btn-info">Detalhes</button>

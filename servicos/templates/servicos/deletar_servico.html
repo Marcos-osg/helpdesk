@@ -3,7 +3,7 @@
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        <h1>Confirmar exclusão do Serviço? <strong>{{servico.descricao}} </strong> ?</h1>
+        <h1>Confirmar exclusão do Serviço? <strong>{{servico.descricao_servico}} </strong> ?</h1>
         <h2>Atenção essa exclusão poderá causar Erros, pense bem.</h2>
         <br>
         <button class="btn btn-success" type="submit">Confirmar</button>
